@@ -286,6 +286,67 @@ main { height:calc(100vh - var(--header-h)); overflow:hidden; }
   #sideList{ flex:1 1 auto; min-height:0; }
 }
 
+/* Заголовок плеера: 2 строки + многоточие */
+.player-title{
+  font-weight:700;
+  flex:1 1 auto;
+  overflow:hidden;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+}
+
+/* Кнопки компактнее на мобильных */
+@media (max-width: 640px){
+  .player-top{
+    display:grid;
+    grid-template-columns: 1fr auto; /* слева заголовок, справа маленькая кнопка(и) */
+    grid-auto-rows:min-content;
+    align-items:center;
+    gap:8px;
+  }
+
+  /* Заголовок занимает всю ширину первой строки */
+  .player-title{ grid-column: 1 / -1; }
+
+  /* Блок с CTA уходит на вторую строку и тянется на всю ширину */
+  .player-cta{
+    grid-column: 1 / -1;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+
+  /* Кнопки CTA поменьше, иконки 16px */
+  .cta{ padding:1px; box-shadow:none; }
+  .cta > span{ height:32px; padding:0 10px; }
+  .cta svg{ width:16px; height:16px; }
+
+  /* Кнопка mute — маленькая и у края */
+  .player-actions{
+    grid-column: 2 / 3; /* справа от заголовка в первой строке */
+    justify-self:end;
+    gap:6px;
+  }
+  .pill{ height:32px; padding:0 10px; }
+
+  /* Видео не “выпирает”, скругление остается */
+  video{
+    max-height: var(--player-h-mob); /* например 38vh */
+    height:auto;
+    border-bottom-left-radius:14px;
+    border-bottom-right-radius:14px;
+    object-fit:contain;
+  }
+}
+
+/* Чтобы кнопки не ломались из-за длинных подпейсов */
+.cta .label{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width: 38vw; /* на телефоне подписи не растягивают строку */
+}
 
   </style>
 </head>
