@@ -13,6 +13,7 @@
       --vh: 1vh;
       --header-h:72px; --container:1260px; --sidebar-w:380px;
       --tabs-offset:0px; --player-h-mob:38vh;
+      --btn-h:36px;
 
       /* светлая тема */
       --bg:#ffffff; --panel:#f7f9fc; --card:#ffffff; --text:#0f172a; --muted:#6b7280;
@@ -59,47 +60,57 @@
 
     /* Layout */
     main{min-height:calc(100vh - var(--header-h))}
-    .layout{width:min(var(--container),100%);margin:12px auto 0;padding:0 16px}   /* убрали нижний отступ */
+    .layout{width:min(var(--container),100%);margin:12px auto 0;padding:0 16px}
     .cols{display:flex;flex-direction:column;gap:14px}
-    @media (min-width:1100px){ .cols{display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:16px} }
+    @media (min-width:1100px){
+      .cols{
+        display:grid;
+        grid-template-columns:var(--sidebar-w) 1fr;
+        gap:16px;
+        align-items:start;              /* ✅ не растягиваем сайдбар на высоту плеера */
+        grid-auto-rows:auto;
+      }
+    }
 
     #playerCard{order:1} #sideList{order:2}
     @media (min-width:1100px){ #playerCard{order:2} #sideList{order:1} }
 
     /* Sidebar & list */
-    .side{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+    .side{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:visible} /* ✅ */
     .tools{padding:12px;border-bottom:1px solid var(--border);background:var(--panel)}
     .search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:8px 12px}
     .search input{flex:1;background:transparent;border:0;outline:0;color:var(--text);font-size:14px}
-    .list{list-style:none;margin:0;padding:0;overflow:auto}
-    .list{max-height:calc(var(--vh) * 100 - var(--header-h) - var(--tabs-offset) - var(--player-h-mob) - 118px)} /* компактнее, чтобы без хвоста */
-    @media (min-width:1100px){ .list{max-height:calc(100vh - var(--header-h) - 120px)} }
+
+    /* Список — без внутреннего скролла, страница скроллится целиком */
+    .list{list-style:none;margin:0;padding:0;overflow:visible} /* ✅ */
     .list li{padding:12px 14px;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:center;gap:10px}
     .list li:hover{background:color-mix(in srgb,var(--panel) 70%, transparent)}
     .list li.active{background:color-mix(in srgb,var(--brand) 12%, var(--card))}
     .num{font-size:12px;color:var(--text);background:color-mix(in srgb, var(--brand) 12%, var(--panel));border:1px solid var(--border);padding:2px 8px;border-radius:999px}
     .empty{color:var(--muted);padding:16px}
+    #sideList > *:last-child{margin-bottom:0} /* на всякий случай убираем «хвост» отступов */
 
     /* Player */
     .player{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
-    .player-top{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .player-top{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);flex-wrap:nowrap}
     .player-title{font-weight:700;flex:1 1 auto}
-    .player-actions{display:flex;gap:8px;align-items:center}
-    .pill{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:999px;cursor:pointer}
-    /* CTA в плеере */
-    .player-cta{display:flex;gap:8px;align-items:center}
+    .player-actions{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
+    .player-cta{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
+
+    .pill{border:1px solid var(--border);background:var(--card);padding:0 12px;border-radius:999px;cursor:pointer;height:var(--btn-h);display:flex;align-items:center}
     .cta{--g:var(--cta-grad); display:inline-flex;align-items:center;gap:8px;border:0;background:var(--card);text-decoration:none;color:var(--text);padding:2px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap}
     html[data-theme="dark"] .cta{--g:var(--cta-grad-dark)}
-    .cta > span{display:inline-flex;align-items:center;gap:8px;background:var(--g);color:#fff;padding:6px 10px;border-radius:999px}
+    .cta > span{display:inline-flex;align-items:center;gap:8px;background:var(--g);color:#fff;padding:0 12px;border-radius:999px;height:var(--btn-h)}
     .cta svg{width:18px;height:18px}
-    /* текст для кнопки "Видеонаблюдение": на мобиле короткий, на десктопе длинный */
     .cta.install .label::after{content: attr(data-full);}
     @media (max-width:800px){ .cta.install .label::after{content: attr(data-short);} }
-    video{display:block;width:100%;height:var(--player-h-mob);background:#000;object-fit:cover}
-    @media (min-width:1100px){ video{height:64vh} }
+
+    /* Видео — оригинальные пропорции */
+    video{display:block;width:100%;height:auto;max-height:58vh;background:#000;object-fit:contain}
+    @media (min-width:1100px){ video{max-height:64vh} }
 
     /* Map section */
-    #map-section{display:none;width:min(var(--container),100%);margin:12px auto 0;padding:0 16px} /* без нижнего отступа */
+    #map-section{display:none;width:min(var(--container),100%);margin:12px auto 0;padding:0 16px}
     #map-card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
     #mapbar{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel)}
     #mapbar .pill{display:flex;gap:8px;align-items:center}
@@ -112,6 +123,170 @@
       .tabs-mobile{display:block}
       :root{ --tabs-offset:70px; }
     }
+    /* ===== Только список скроллится, страница — нет ===== */
+html, body{
+  height:100%;
+  overflow:hidden;                 /* страница не скроллится */
+}
+
+/* высота рабочего участка под шапкой/моб.табы */
+main{
+  height:calc(100vh - var(--header-h));
+  overflow:hidden;
+}
+.layout{
+  height:calc(100vh - var(--header-h) - var(--tabs-offset) - 12px);
+}
+
+/* колонки занимают всю высоту рабочей области */
+.cols{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  height:100%;                     /* важно: есть фиксированная высота */
+}
+@media (min-width:1100px){
+  .cols{
+    display:grid;
+    grid-template-columns:var(--sidebar-w) 1fr;
+    gap:16px;
+    align-items:stretch;
+    height:100%;
+  }
+}
+
+/* сайдбар — колонка с внутренним флексом */
+#sideList{
+  display:flex;
+  flex-direction:column;
+  min-height:0;                    /* позволяет .list ужиматься */
+}
+
+/* шапка сайдбара — фикс высота, список — растягивается и скроллится */
+#sideList .tools{ flex:0 0 auto; }
+.list{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;                 /* ✅ скролл только у списка */
+  -webkit-overflow-scrolling:touch;/* плавный инерционный скролл на мобилках */
+}
+
+/* на всякий случай уберём прежние ограничения, если они где-то остались */
+.list{ max-height:unset !important; overflow-x:hidden; }
+.side{ overflow:hidden; }          /* карточка не «течёт» за рамки */
+/* колонки — плеер сверху, список снизу */
+.cols{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  height:100%;
+}
+
+/* плеер фиксирован по высоте содержимого */
+#playerCard{
+  flex:0 0 auto;
+}
+
+/* сайдбар со списком занимает всё оставшееся место */
+#sideList{
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  min-height:0;   /* ключ! позволяет списку ужиматься */
+}
+
+/* поиск фикс сверху внутри сайдбара */
+#sideList .tools{
+  flex:0 0 auto;
+}
+
+/* список растягивается и скроллится */
+.list{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ===== База: страница не скроллится, скролл только у списка ===== */
+html, body { height:100%; overflow:hidden; }
+main { height:calc(100vh - var(--header-h)); overflow:hidden; }
+.layout { height:calc(100vh - var(--header-h) - var(--tabs-offset) - 12px); }
+
+/* Мобильная раскладка (стек): плеер сверху, список снизу со своим скроллом */
+.cols{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  height:100%;
+}
+#playerCard{ flex:0 0 auto; }
+#sideList{
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  min-height:0;                /* чтобы .list мог сжиматься */
+}
+#sideList .tools{ flex:0 0 auto; }
+.list{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;             /* ✅ скролл только списка */
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ===== Десктоп (две колонки): сайдбар слева, плеер справа ===== */
+@media (min-width:1100px){
+  .cols{
+    display:grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    gap:16px;
+    align-items:stretch;
+    height:100%;               /* высота = рабочая область */
+  }
+
+  /* сайдбар заполняет всю левую колонку; скролл только у списка */
+  #sideList{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+    overflow:hidden;           /* карточка не «течёт» */
+  }
+  #sideList .tools{ flex:0 0 auto; }
+  .list{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-y:auto;           /* ✅ остаётся скролл списка */
+  }
+
+  /* правая колонка (плеер) — без собственного скролла */
+  #playerCard{ min-height:0; overflow:hidden; }
+}
+
+/* подстраховка: убираем старые ограничения, если где-то остались */
+.list{ max-height:unset !important; overflow-x:hidden; }
+
+/* ОБЩЕЕ — важно для внутренних скроллов */
+.layout{ height:calc(var(--vh) * 100 - var(--header-h) - var(--tabs-offset) - 12px); }
+.cols{ height:100%; min-height:0; }
+.side{ display:flex; flex-direction:column; min-height:0; height:100%; overflow:hidden; }
+.tools{ flex:0 0 auto; }
+.list{ flex:1 1 auto; overflow:auto; min-height:0; }
+
+/* Плеер всегда фиксированной высоты по контенту */
+.player{ flex:0 0 auto; }
+
+/* Мобилка: ограничиваем высоту видео, чтобы списку хватало места */
+@media (max-width:1099.98px){
+  video{
+    max-height: var(--player-h-mob); /* было auto/58vh — на мобиле делаем ниже */
+    height: auto;
+    object-fit: contain;
+  }
+  #sideList{ flex:1 1 auto; min-height:0; }
+}
+
+
   </style>
 </head>
 <body>
@@ -125,7 +300,7 @@
               <circle cx="12" cy="12" r="5" fill="#60a5fa"/><circle cx="12" cy="12" r="2" fill="#e0f2fe"/>
             </svg>
           </div>
-          <span>Камеры Бийска</span>
+          <span>Камеры Бийск</span>
         </div>
 
         <div class="theme-toggle">
@@ -385,7 +560,10 @@
     mapSection.style.display  = isList ? 'none'  : 'block';
     if(!isList){
       stop();
-      setTimeout(()=> fitAll(true), 60);
+      setTimeout(()=>{
+        try{ map && map.container.fitToViewport(); }catch(e){}
+        fitAllRobust();                 // ✅ надёжный фит
+      },60);
     }
   }
   tabListDesk.onclick=()=> setTabsActive('list');
@@ -427,21 +605,29 @@
       }
       clusterer.add(pms); map.geoObjects.add(clusterer);
 
-      document.getElementById('btn-fit').onclick=()=>fitAll(true);
+      document.getElementById('btn-fit').onclick=()=>fitAllRobust();
       document.getElementById('btn-locate').onclick=locateMe;
 
-      fitAll(true);
+      fitAllRobust();                 // ✅ первый фит
     });
   }
 
-  function fitAll(){
+  /* Надёжное приближение карты с повторными попытками */
+  function fitAllRobust(tries = 5){
     if(!map || !clusterer) return;
     const b = clusterer.getBounds();
-    if(b){ map.setBounds(b, {checkZoomRange:true, zoomMargin:40}); return; }
-    const pts=[]; placemarks.forEach(pm=>{ const c=pm.geometry.getCoordinates(); if(c) pts.push(c); });
-    if(pts.length===1){ map.setCenter(pts[0], 14); }
-    else if(pts.length>1){ map.setBounds(ymaps.util.bounds.fromPoints(pts), {checkZoomRange:true, zoomMargin:40}); }
-    else { map.setCenter([52.536,85.207], 12); }
+    if(b){
+      map.setBounds(b, {checkZoomRange:true, zoomMargin:40});
+      return;
+    }
+    if(tries <= 0){
+      map.setCenter([52.536,85.207], 12);
+      return;
+    }
+    setTimeout(()=>{
+      try { map.container.fitToViewport(); } catch(e){}
+      fitAllRobust(tries - 1);
+    }, 120);
   }
 
   function locateMe(){
@@ -455,10 +641,18 @@
   }
 
   function refreshPlacemarksVisibility(){
-    if(!clusterer) return; const ids=new Set(filtered.map(c=>c.id)); const visible=[];
+    if(!clusterer) return;
+    const ids=new Set(filtered.map(c=>c.id));
+    const visible=[];
     placemarks.forEach((pm,id)=>{ if(ids.has(id)) visible.push(pm); });
     clusterer.removeAll(); clusterer.add(visible);
-    if(mapSection.style.display==='block') setTimeout(()=>fitAll(), 30);
+
+    if(mapSection.style.display==='block'){
+      setTimeout(()=>{
+        try { map.container.fitToViewport(); } catch(e){}
+        fitAllRobust();
+      }, 30);
+    }
   }
 
   load();
