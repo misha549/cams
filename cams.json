@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "298",
+    "name": "2-й километр ост. №1 (Шишкова, 41б)",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/30605397/644610a60b21d7990e9f/playlist.m3u8"
+  },
+  {
+    "id": "299",
+    "name": "2-й километр ост. №2 (Шишкова, 41б)",
+    "m3u8": ""
+  },
+  {
+    "id": "167",
+    "name": "8 Марта - Горно-Алтайская",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/4539796/58ca03c7bcbd06bcaa70/playlist.m3u8"
+  },
+  {
+    "id": "226",
+    "name": "Автолидер на Каховской",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/12647694/71f3b5db4a97c7da644d/playlist.m3u8"
+  },
+  {
+    "id": "160",
+    "name": "Администрация города",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/4143088/e9f9e42f7f8b80d9d170/playlist.m3u8"
+  },
+  {
+    "id": "20",
+    "name": "АТС-4 (клумба)",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/110612/c3a9c630d8054de8f810/playlist.m3u8"
+  },
+  {
+    "id": "136",
+    "name": "АТС-4 (мост)",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/2475032/54c94c5da78793b39958/playlist.m3u8"
+  },
+  {
+    "id": "32",
+    "name": "АТС-4 ост.",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/357416/eaa67a0e03fdb0057696/playlist.m3u8"
+  },
+  {
+    "id": "39",
+    "name": "Бизнес центр \"Оскар\"",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/423923/c9e8eb5ea7243d99ad17/playlist.m3u8"
+  },
+  {
+    "id": "122",
+    "name": "Бийский лицей",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2150817/35f6003048f7d8c902df/playlist.m3u8"
+  },
+  {
+    "id": "225",
+    "name": "Васильева 28",
+    "m3u8": "https://cctv9.digibi.ru:18080/hls/12562385/234d2606db107a84f737/playlist.m3u8"
+  },
+  {
+    "id": "46",
+    "name": "Васильева - 8 марта",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/489676/bbe69ba894578db7d79b/playlist.m3u8"
+  },
+  {
+    "id": "48",
+    "name": "Васильева - Ленинградская",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/615945/b6e2670b4d91a0c2d350/playlist.m3u8"
+  },
+  {
+    "id": "78",
+    "name": "Васильева - Липового",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1248545/49760a224a3f31e71ef8/playlist.m3u8"
+  },
+  {
+    "id": "18",
+    "name": "Васильева - Мартьянова №1",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/27505/a70048d0ccd1bd594282/playlist.m3u8"
+  },
+  {
+    "id": "49",
+    "name": "Васильева - Мартьянова №2",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/594731/a379659e997bac4f5d1a/playlist.m3u8"
+  },
+  {
+    "id": "182",
+    "name": "Васильева - Омский",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5335365/bfe8eb5bfecff1ecb5bf/playlist.m3u8"
+  },
+  {
+    "id": "70",
+    "name": "Васильева - Социалистическая",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1065769/7f4c0b3389038f95de33/playlist.m3u8"
+  },
+  {
+    "id": "38",
+    "name": "Васильева - Трофимова №1",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/230453/178c952b7d1869584d04/playlist.m3u8"
+  },
+  {
+    "id": "285",
+    "name": "Васильева - Трофимова №2",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/28527671/29053da2de08a31c8bdd/playlist.m3u8"
+  },
+  {
+    "id": "104",
+    "name": "Вечный огонь 1",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/5790194/2440c91d18a4029af016/playlist.m3u8"
+  },
+  {
+    "id": "105",
+    "name": "Вечный огонь 2",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5790179/18d83d7db3b6fc2b505c/playlist.m3u8"
+  },
+  {
+    "id": "89",
+    "name": "В.-Интернационалистов - 8 Марта",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1566941/f8e453c176b95a2c6f03/playlist.m3u8"
+  },
+  {
+    "id": "94",
+    "name": "В.-Интернационалистов - Дружный",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1598665/8b30e05bc7f76852cab6/playlist.m3u8"
+  },
+  {
+    "id": "69",
+    "name": "В.-Интернационалистов - Ленинградская",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/1037110/810b3f85d265514254cb/playlist.m3u8"
+  },
+  {
+    "id": "139",
+    "name": "В.-Интернационалистов - Липового",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/2502369/b3bcfb85eda19ba4785e/playlist.m3u8"
+  },
+  {
+    "id": "90",
+    "name": "В.-Интернационалистов - Мартьянова",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1567011/8b530f3e834a51efb540/playlist.m3u8"
+  },
+  {
+    "id": "141",
+    "name": "В.-Интернационалистов - Омский",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2562522/9dd7e538853f95992dd8/playlist.m3u8"
+  },
+  {
+    "id": "23",
+    "name": "Вокзал ост.",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/185678/b896f95ec885d7ba112c/playlist.m3u8"
+  },
+  {
+    "id": "130",
+    "name": "Волочаевская",
+    "m3u8": ""
+  },
+  {
+    "id": "9",
+    "name": "Воскресенье ТРК",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/3716/06bf19c7e1a9f32cfdf8/playlist.m3u8"
+  },
+  {
+    "id": "45",
+    "name": "Выставочный ост.",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/488180/766d7dcab64aa5a59f4b/playlist.m3u8"
+  },
+  {
+    "id": "123",
+    "name": "Гастелло - Промышленная",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2150847/58c1049ce5005c018ce8/playlist.m3u8"
+  },
+  {
+    "id": "110",
+    "name": "Гастелло - Шадрина",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1903842/92c700800b3e597a7cb1/playlist.m3u8"
+  },
+  {
+    "id": "252",
+    "name": "ГДК парковка",
+    "m3u8": ""
+  },
+  {
+    "id": "251",
+    "name": "ГДК площадь",
+    "m3u8": ""
+  },
+  {
+    "id": "200",
+    "name": "ГДК (фонтан)",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/7911969/befee1a7f63eda3d5f96/playlist.m3u8"
+  },
+  {
+    "id": "47",
+    "name": "Гилева - Толстого",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/615836/ea200b79cfe81f8b9ab8/playlist.m3u8"
+  },
+  {
+    "id": "316",
+    "name": "Гимназия 11 №1",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/35300246/5f2ac19cd3bb3c072a96/playlist.m3u8"
+  },
+  {
+    "id": "65",
+    "name": "Гимназия №1",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/1002477/094c81bb82108da3bdf1/playlist.m3u8"
+  },
+  {
+    "id": "72",
+    "name": "Главэлеватор - 2-я Набережная №1",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/20807660/9e2c5ed5c35eddd29c02/playlist.m3u8"
+  },
+  {
+    "id": "265",
+    "name": "Главэлеватор - 2-я Набережная №2",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/20807687/84c2e236b83b57508178/playlist.m3u8"
+  },
+  {
+    "id": "140",
+    "name": "Городской Дворец Культуры",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/2562505/21089499e44574135858/playlist.m3u8"
+  },
+  {
+    "id": "186",
+    "name": "Городской лес",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/5498174/54ed971ed7085debf1f4/playlist.m3u8"
+  },
+  {
+    "id": "12",
+    "name": "Городской суд",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/11184/ca1fad7866c9e129ebb5/playlist.m3u8"
+  },
+  {
+    "id": "120",
+    "name": "Горького - Ключевской",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/2048768/7cfb4e4c2cd886070493/playlist.m3u8"
+  },
+  {
+    "id": "119",
+    "name": "Горького - Сосновый",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/2048766/75e51a66b71b0d542e78/playlist.m3u8"
+  },
+  {
+    "id": "21",
+    "name": "Граничная - Льнокомбинат",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/180934/53663534f98f5479c774/playlist.m3u8"
+  },
+  {
+    "id": "22",
+    "name": "Грин центр",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/179642/6c4afedf5c44e100007c/playlist.m3u8"
+  },
+  {
+    "id": "99",
+    "name": "Декабристов - Ломоносова",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/1666843/6e9efe6a796ba4f7a913/playlist.m3u8"
+  },
+  {
+    "id": "101",
+    "name": "Дельфин парковка",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1666865/6ce4fc9648c67afb2590/playlist.m3u8"
+  },
+  {
+    "id": "43",
+    "name": "Детский мир",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/510357/56856f2bd8a9402e9d08/playlist.m3u8"
+  },
+  {
+    "id": "175",
+    "name": "Детский сад №47",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5223112/7ba9b0ea4bead93699f5/playlist.m3u8"
+  },
+  {
+    "id": "221",
+    "name": "Димакс №1",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12517197/2e1286985bbacdf0997a/playlist.m3u8"
+  },
+  {
+    "id": "222",
+    "name": "Димакс №2",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12517316/7eeaa852b905862d5d39/playlist.m3u8"
+  },
+  {
+    "id": "133",
+    "name": "Докучаева - Прибыткова",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/2376843/370fcb556ca70e4d9e9d/playlist.m3u8"
+  },
+  {
+    "id": "95",
+    "name": "Дом советов ост. (Красноармейская)",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/1598669/6f4ef59ec56bc6e608c2/playlist.m3u8"
+  },
+  {
+    "id": "212",
+    "name": "Дубильная 8",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/10184080/a84de01904590006ef32/playlist.m3u8"
+  },
+  {
+    "id": "187",
+    "name": "ЗАГС",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5498224/9cce136e9747d8de8537/playlist.m3u8"
+  },
+  {
+    "id": "59",
+    "name": "Заря СК",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/814337/b3e8f84eeba4c85d924e/playlist.m3u8"
+  },
+  {
+    "id": "8",
+    "name": "Зеленый клин №1",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/2953/8da733afb8c422bd27ce/playlist.m3u8"
+  },
+  {
+    "id": "159",
+    "name": "Зеленый клин №2",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/3731760/87e2beb51794a2603ef6/playlist.m3u8"
+  },
+  {
+    "id": "82",
+    "name": "Иртышская - Социалистическая",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1378151/e290a43c9b186615dac6/playlist.m3u8"
+  },
+  {
+    "id": "117",
+    "name": "Коммунальный мост 1",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2030319/4ea512961c312af0555c/playlist.m3u8"
+  },
+  {
+    "id": "115",
+    "name": "Коммунальный мост 2",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2030331/f96d2e1acdf3b3fec62b/playlist.m3u8"
+  },
+  {
+    "id": "114",
+    "name": "Коммунальный мост 3",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1931103/5ce6701ee48e398090df/playlist.m3u8"
+  },
+  {
+    "id": "113",
+    "name": "Коммунальный мост 4",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1931059/c68855ca8819b41cf793/playlist.m3u8"
+  },
+  {
+    "id": "24",
+    "name": "Коммунарский - Ленина",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/188600/9f61ed5f48a5ef4eced8/playlist.m3u8"
+  },
+  {
+    "id": "192",
+    "name": "Коммунарский - Ленина (поворотная)",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/5806633/b6bf9a27d402f97aac64/playlist.m3u8"
+  },
+  {
+    "id": "214",
+    "name": "Коммунарский - Мухачева",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/10566582/b3857405a9edcbc2179f/playlist.m3u8"
+  },
+  {
+    "id": "334",
+    "name": "Коммунарский - Мухачёва №2",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/41342693/a8c11bfe5012cbc8b1ec/playlist.m3u8"
+  },
+  {
+    "id": "40",
+    "name": "Коммунарский - Революции",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/419227/904fc4d9fc2704b262e4/playlist.m3u8"
+  },
+  {
+    "id": "216",
+    "name": "Коммунарский - Сенная",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/10566703/673ddb5fc5f5bbd30654/playlist.m3u8"
+  },
+  {
+    "id": "147",
+    "name": "Коммунарский - Советская",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2958084/51e5d4cd56da415712f0/playlist.m3u8"
+  },
+  {
+    "id": "215",
+    "name": "Коммунарский (ТРК Воскресенье ост.)",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/10566674/5e7e1171ee7ccc0c1e29/playlist.m3u8"
+  },
+  {
+    "id": "86",
+    "name": "Короленко - Литейный",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1527571/150c5a13d631393dd7a7/playlist.m3u8"
+  },
+  {
+    "id": "87",
+    "name": "Короленко - Муромцевский",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1557206/1e7f8dac2e5306ae561e/playlist.m3u8"
+  },
+  {
+    "id": "97",
+    "name": "Кошевого - Петрова",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1634022/2316daf6fa86030f0e2f/playlist.m3u8"
+  },
+  {
+    "id": "53",
+    "name": "Краснооктябрьская - Красноярский",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/687724/613b5a38b4ca26b7185b/playlist.m3u8"
+  },
+  {
+    "id": "57",
+    "name": "Кристалл ост.",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/797779/cf9b272f5fc731f6a0fb/playlist.m3u8"
+  },
+  {
+    "id": "180",
+    "name": "Кутузова - Ленинградская",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5334773/9e117d056fe002745228/playlist.m3u8"
+  },
+  {
+    "id": "217",
+    "name": "Кутузова - Матросова",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/11009525/a11af387dc3db6da3957/playlist.m3u8"
+  },
+  {
+    "id": "30",
+    "name": "Ленина - Кожевенный",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/355630/382e019f2610439ffb91/playlist.m3u8"
+  },
+  {
+    "id": "44",
+    "name": "Ленина - Мопровский",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/491413/0e15b8d35d6da34da17a/playlist.m3u8"
+  },
+  {
+    "id": "92",
+    "name": "Ленинградская - Горно-Алтайская",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1567030/54f82514282c4353213c/playlist.m3u8"
+  },
+  {
+    "id": "302",
+    "name": "Ленинградская - Горно-Алтайская №2",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/31246239/8061b257bb2b3858654b/playlist.m3u8"
+  },
+  {
+    "id": "31",
+    "name": "Ленинградская - Можайского",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/996981/1f9755909ffa616d973e/playlist.m3u8"
+  },
+  {
+    "id": "301",
+    "name": "Ленинградская ост.",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/31246216/cd2f6243107bea5275c4/playlist.m3u8"
+  },
+  {
+    "id": "66",
+    "name": "Ленинградская - Пугачева",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/1002485/16896da4902f52924801/playlist.m3u8"
+  },
+  {
+    "id": "50",
+    "name": "Ленинградская - Разина",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/629256/1e7a15b8f402137dfb1c/playlist.m3u8"
+  },
+  {
+    "id": "64",
+    "name": "Ленинградская - Чайковского",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/918170/d6e80e61892e392bc119/playlist.m3u8"
+  },
+  {
+    "id": "51",
+    "name": "Лента (левая)",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/676364/70371c8e174fb7f8edf4/playlist.m3u8"
+  },
+  {
+    "id": "77",
+    "name": "Лента (правая)",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1235239/2f97d75daf34d2d73732/playlist.m3u8"
+  },
+  {
+    "id": "93",
+    "name": "Липового - Горно-Алтайская",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1598639/4b4e94a1e30400a2c9bb/playlist.m3u8"
+  },
+  {
+    "id": "134",
+    "name": "Литейный",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/2472478/3e1d38e3c7aa1618ac1b/playlist.m3u8"
+  },
+  {
+    "id": "142",
+    "name": "Литейный - Шевченко",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2796881/ac62f091b6954ab7e206/playlist.m3u8"
+  },
+  {
+    "id": "155",
+    "name": "Ломоносова - Можайского",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/3359727/458db595945107fcb457/playlist.m3u8"
+  },
+  {
+    "id": "154",
+    "name": "Ломоносова - Пугачёва",
+    "m3u8": ""
+  },
+  {
+    "id": "172",
+    "name": "Ломоносова - Радищева",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5211144/2e7b292c526c066f999f/playlist.m3u8"
+  },
+  {
+    "id": "356",
+    "name": "Льва Толстого - Двойных",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/60259293/da58baa6e820e6040fae/playlist.m3u8"
+  },
+  {
+    "id": "357",
+    "name": "Льва Толстого - Кирова",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/60259809/1ff46ffed955c2c868f2/playlist.m3u8"
+  },
+  {
+    "id": "353",
+    "name": "Льва Толстого - Фомченко",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/57922551/49369004c02b61467af6/playlist.m3u8"
+  },
+  {
+    "id": "28",
+    "name": "Мария-Ра парковка (АБ)",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/363942/9fcf88326e5a94b55f94/playlist.m3u8"
+  },
+  {
+    "id": "68",
+    "name": "Мария-РА (трест)",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/1028797/c4d87ac859580699a402/playlist.m3u8"
+  },
+  {
+    "id": "100",
+    "name": "Мартьянова - Репина",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/1666850/5002f07f360a170063a2/playlist.m3u8"
+  },
+  {
+    "id": "96",
+    "name": "Мартьянова - Ударная",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/1598675/2d44960f9887269debb1/playlist.m3u8"
+  },
+  {
+    "id": "333",
+    "name": "Матросова - Можайского",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/40883258/60a15cb70612587aeb72/playlist.m3u8"
+  },
+  {
+    "id": "129",
+    "name": "Матросова - Пугачева",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2328131/145acb8601b8e766e05a/playlist.m3u8"
+  },
+  {
+    "id": "151",
+    "name": "Матросова - Разина №1",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/3035937/fc09dde42688bd5119d4/playlist.m3u8"
+  },
+  {
+    "id": "206",
+    "name": "Матросова - Разина №2",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/9075433/4aecd93efabdba937948/playlist.m3u8"
+  },
+  {
+    "id": "128",
+    "name": "Матросова - Чайковского",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2328094/85fc70ba2f98bb89f834/playlist.m3u8"
+  },
+  {
+    "id": "163",
+    "name": "Мать и дитя",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/4441384/9848a23a445082ae3188/playlist.m3u8"
+  },
+  {
+    "id": "150",
+    "name": "Мебельная парковка",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/3035859/5628a7a5de53f24bf34e/playlist.m3u8"
+  },
+  {
+    "id": "312",
+    "name": "Мемориал погибшим в ВОВ",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/33179730/3ea95e05074139475cd8/playlist.m3u8"
+  },
+  {
+    "id": "37",
+    "name": "Мерлина - Гастелло",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/389845/3c4d29c61d2d9b1a15c1/playlist.m3u8"
+  },
+  {
+    "id": "106",
+    "name": "Мерлина - Трофимова",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1731880/2c3889ef3cbec91ff679/playlist.m3u8"
+  },
+  {
+    "id": "218",
+    "name": "Мерлина (Школа №8)",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12286079/83dabe9c0fd723d7049e/playlist.m3u8"
+  },
+  {
+    "id": "42",
+    "name": "Митрофанова - Красноармейская",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/482881/7ecbe0e1b720bba295e5/playlist.m3u8"
+  },
+  {
+    "id": "223",
+    "name": "Митрофанова - Лесная",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12560757/e5d8ca8816500e1b990a/playlist.m3u8"
+  },
+  {
+    "id": "125",
+    "name": "Мичуринский - Шевченко",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2241645/5f397d4e6f1a086e48ca/playlist.m3u8"
+  },
+  {
+    "id": "36",
+    "name": "Модный ТЦ",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/388545/7868edc4b59da671ec25/playlist.m3u8"
+  },
+  {
+    "id": "228",
+    "name": "Москва бизнес-центр №1",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/12704752/7f7cbbbd718583ad5d30/playlist.m3u8"
+  },
+  {
+    "id": "229",
+    "name": "Москва бизнес-центр №2",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/12704902/afac90de47e4640b7989/playlist.m3u8"
+  },
+  {
+    "id": "7",
+    "name": "Музей им. В.В. Бианки",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/497/d6df5c0e8f982f9dca7f/playlist.m3u8"
+  },
+  {
+    "id": "132",
+    "name": "Муромцевский",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2414662/ddee4dca80b55fe93fde/playlist.m3u8"
+  },
+  {
+    "id": "135",
+    "name": "Мухачева - Кожевенный",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/2474979/794fd5f575bfb1ceb329/playlist.m3u8"
+  },
+  {
+    "id": "183",
+    "name": "Мухачева - Училищный",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5335552/bf3b96be9f5262f101ed/playlist.m3u8"
+  },
+  {
+    "id": "107",
+    "name": "Объединение Восток ост.",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1787882/8f548dda2b8f2ea29817/playlist.m3u8"
+  },
+  {
+    "id": "108",
+    "name": "Объединение Восток парковка",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1787885/a8eaabe18733c4707102/playlist.m3u8"
+  },
+  {
+    "id": "354",
+    "name": "Омский",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5336020/f91305d3963f3b45147b/playlist.m3u8"
+  },
+  {
+    "id": "193",
+    "name": "Памятник воинам, погибшим в Великой Отечественной войне 1941-1945 гг.",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5905459/341eab4721083a7e92a1/playlist.m3u8"
+  },
+  {
+    "id": "191",
+    "name": "Памятник воинам-текстильщикам",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5806352/3ffa5616bdcd7d192eac/playlist.m3u8"
+  },
+  {
+    "id": "162",
+    "name": "Памятник жертвам радиации",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/4441366/6f3eadfd1fe65655129a/playlist.m3u8"
+  },
+  {
+    "id": "224",
+    "name": "Парковка (Короленко 51)",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12560808/1bbb224df8bf973a8601/playlist.m3u8"
+  },
+  {
+    "id": "190",
+    "name": "Парковка (Пугачёва 21)",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5780252/7a0bfbdb5a9e6ba415eb/playlist.m3u8"
+  },
+  {
+    "id": "315",
+    "name": "Пешеходный переход (Васильева, 53)",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/34634360/21eb14cb8719b3d57f86/playlist.m3u8"
+  },
+  {
+    "id": "282",
+    "name": "Пешеходный переход (Гимназия №1)",
+    "m3u8": "https://cctv9.digibi.ru:18080/hls/25072914/c65a5c038d967f9bb16e/playlist.m3u8"
+  },
+  {
+    "id": "219",
+    "name": "Пешеходный переход (Мерлина 10)",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/12286316/885b9a39f08f2d16e1b5/playlist.m3u8"
+  },
+  {
+    "id": "230",
+    "name": "Пешеходный переход (ЦУМ)",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12959183/31c04a6dbfd8898d2a3c/playlist.m3u8"
+  },
+  {
+    "id": "325",
+    "name": "Планетарий, парковка",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/35737811/49b348e7e5b8f515c9a9/playlist.m3u8"
+  },
+  {
+    "id": "109",
+    "name": "Планетарий \"Родина\"",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1844257/ac4e7dbad290544f63d9/playlist.m3u8"
+  },
+  {
+    "id": "324",
+    "name": "Планетарий \"Родина\" №2",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/35737784/83a1a7f9712583be742d/playlist.m3u8"
+  },
+  {
+    "id": "55",
+    "name": "Площадь памяти героев ВОВ",
+    "m3u8": "https://cctv2.digibi.ru:18080/hls/714580/9ab09688ed63aee2e227/playlist.m3u8"
+  },
+  {
+    "id": "231",
+    "name": "Площадь перед Администрацией",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12959290/527acd57bb36e19d9852/playlist.m3u8"
+  },
+  {
+    "id": "10",
+    "name": "Привокзальная площадь №1",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/11938/1736d7f74799287cbc04/playlist.m3u8"
+  },
+  {
+    "id": "146",
+    "name": "Привокзальная площадь №2",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2957980/b807759a9fc7e375f305/playlist.m3u8"
+  },
+  {
+    "id": "199",
+    "name": "Пушки Бийской крепости",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/7909841/536d3b403e55144d0030/playlist.m3u8"
+  },
+  {
+    "id": "62",
+    "name": "Пушкина-15 Гвардейской Кавалерийской Дивизии",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/881838/5b78c61db406dd6b6988/playlist.m3u8"
+  },
+  {
+    "id": "34",
+    "name": "Разина - Липового",
+    "m3u8": ""
+  },
+  {
+    "id": "184",
+    "name": "Разина - Омский",
+    "m3u8": "https://cctv1.digibi.ru:18080/hls/58995417/49fbce4a428488ba34a4/playlist.m3u8"
+  },
+  {
+    "id": "75",
+    "name": "Революции - Мопровский",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/1182370/29678942173a8f7d1e62/playlist.m3u8"
+  },
+  {
+    "id": "1",
+    "name": "Ривьера ТРЦ №1",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5/452e70cecbafe495920d/playlist.m3u8"
+  },
+  {
+    "id": "63",
+    "name": "Ривьера ТРЦ №2",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/917284/f09b81f63999863caeda/playlist.m3u8"
+  },
+  {
+    "id": "266",
+    "name": "Ривьера ТРЦ, парковка",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/22020357/b872818caae4149ac67a/playlist.m3u8"
+  },
+  {
+    "id": "208",
+    "name": "Сенная - Гилева",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/9892013/ced286cc56092ced883c/playlist.m3u8"
+  },
+  {
+    "id": "211",
+    "name": "Советская 199/6",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/9938360/273e31a7642ae89a8e4e/playlist.m3u8"
+  },
+  {
+    "id": "210",
+    "name": "Советская 211",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/9931552/a96963886ab201570325/playlist.m3u8"
+  },
+  {
+    "id": "177",
+    "name": "Советская, пешеходный переход 1",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5223215/9d2c6b592614675dbb22/playlist.m3u8"
+  },
+  {
+    "id": "138",
+    "name": "Советская - Стахановская",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2502324/5a4dfd6157e6d5e9d530/playlist.m3u8"
+  },
+  {
+    "id": "181",
+    "name": "Социалистическая 26",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/26412183/f1c5fcd0763b115ee641/playlist.m3u8"
+  },
+  {
+    "id": "152",
+    "name": "Социалистическая 38",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/3200610/fdad6e60881bedbe08c3/playlist.m3u8"
+  },
+  {
+    "id": "102",
+    "name": "Социалистическая (АБ)",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1696173/2a49fe2bd0b699b38c74/playlist.m3u8"
+  },
+  {
+    "id": "176",
+    "name": "Социалистическая - В.Интернационалистов",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/5223160/a7f5546d8d5e07a1014b/playlist.m3u8"
+  },
+  {
+    "id": "83",
+    "name": "Социалистическая (Кирп. завод)",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1378197/10cd29838120afec5f96/playlist.m3u8"
+  },
+  {
+    "id": "179",
+    "name": "Социалистическая - Кутузова",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5333688/019b20e220db4f8f626b/playlist.m3u8"
+  },
+  {
+    "id": "29",
+    "name": "Социалистическая - Можайского",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/348492/c710a58231a641930eb2/playlist.m3u8"
+  },
+  {
+    "id": "67",
+    "name": "Социалистическая - Пугачева",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/1002495/3f6d00125d802cbada17/playlist.m3u8"
+  },
+  {
+    "id": "185",
+    "name": "Социалистическая - Чайковского",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5444430/04bbd53233f9a9ed9793/playlist.m3u8"
+  },
+  {
+    "id": "11",
+    "name": "Стахановская ост.",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/363946/3dfea2c2cf9932bec24f/playlist.m3u8"
+  },
+  {
+    "id": "194",
+    "name": "Стела Войнам Бийчанам",
+    "m3u8": "https://cctv11.digibi.ru:18080/hls/5905752/79ab5f092748de15fb3d/playlist.m3u8"
+  },
+  {
+    "id": "19",
+    "name": "Табачная фабрика ост. №1",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/74202/a97bfc864469641845da/playlist.m3u8"
+  },
+  {
+    "id": "137",
+    "name": "Табачная фабрика ост. №2",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/2475050/156e26012d7e832b7ccc/playlist.m3u8"
+  },
+  {
+    "id": "98",
+    "name": "Трофимова - Кошевого",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/1634071/fb924d8bd5c14efe1f3a/playlist.m3u8"
+  },
+  {
+    "id": "76",
+    "name": "Трофимова - Севастопольская",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/1200250/ae8440e911f544af125c/playlist.m3u8"
+  },
+  {
+    "id": "71",
+    "name": "Трофимова - Ударная",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/1068171/038130a2ddf7038124cd/playlist.m3u8"
+  },
+  {
+    "id": "296",
+    "name": "Трофимова - Ударная №1",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/30486335/0ebb638940d71589d6e1/playlist.m3u8"
+  },
+  {
+    "id": "297",
+    "name": "Трофимова - Ударная №2",
+    "m3u8": "https://cctv9.digibi.ru:18080/hls/30486310/074dca384c7e1c95370d/playlist.m3u8"
+  },
+  {
+    "id": "294",
+    "name": "Трофимова - Шадрина №1",
+    "m3u8": ""
+  },
+  {
+    "id": "295",
+    "name": "Трофимова - Шадрина №2",
+    "m3u8": ""
+  },
+  {
+    "id": "245",
+    "name": "Ударная - 8 Марта",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/16535924/95ce72d40379cb48ea2c/playlist.m3u8"
+  },
+  {
+    "id": "88",
+    "name": "Ударная - Ленинградская",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/1563999/db4a4fda7d868e0f11e2/playlist.m3u8"
+  },
+  {
+    "id": "168",
+    "name": "Ударная - Липового",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/4549001/e038bde2ceb107060bcc/playlist.m3u8"
+  },
+  {
+    "id": "178",
+    "name": "Ударная - Омский",
+    "m3u8": "https://cctv5.digibi.ru:18080/hls/5333663/b588556dec88340de34a/playlist.m3u8"
+  },
+  {
+    "id": "16",
+    "name": "Ударная - Социалистическая",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/19460/201b9b030ed27b71e15b/playlist.m3u8"
+  },
+  {
+    "id": "35",
+    "name": "ЦУМ",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/3300394/edefb72b504a839fa211/playlist.m3u8"
+  },
+  {
+    "id": "127",
+    "name": "Чайковского - Ломоносова",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2328071/420eb757e515c4822752/playlist.m3u8"
+  },
+  {
+    "id": "131",
+    "name": "Шевченко - Складской",
+    "m3u8": "https://cctv3.digibi.ru:18080/hls/2414675/c8af2c10d34f54e574b1/playlist.m3u8"
+  },
+  {
+    "id": "291",
+    "name": "Шишкова - Горького",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/29732523/46b6f8304071b2196c34/playlist.m3u8"
+  },
+  {
+    "id": "338",
+    "name": "Шишкова - Дальняя №1",
+    "m3u8": "https://cctv1.digibi.ru:18080/hls/50374538/916aee65902d02d88370/playlist.m3u8"
+  },
+  {
+    "id": "339",
+    "name": "Шишкова - Дальняя №2",
+    "m3u8": "https://cctv4.digibi.ru:18080/hls/50374806/0ed2ba63b94ffed27d3d/playlist.m3u8"
+  },
+  {
+    "id": "290",
+    "name": "Шишкова (мост)",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/29732158/f14f061c4e8754872f3b/playlist.m3u8"
+  },
+  {
+    "id": "336",
+    "name": "Шишкова - Памирская №1",
+    "m3u8": "https://cctv4.digibi.ru:18080/hls/50373845/bfa3a4a446685cfb68d6/playlist.m3u8"
+  },
+  {
+    "id": "337",
+    "name": "Шишкова - Памирская №2",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/50374202/db42415a6814cb7e8b93/playlist.m3u8"
+  },
+  {
+    "id": "292",
+    "name": "Шишкова (Чуйский тракт)",
+    "m3u8": "https://cctv9.digibi.ru:18080/hls/29732596/c3b2799dae506ac6eef7/playlist.m3u8"
+  },
+  {
+    "id": "85",
+    "name": "Школа №1",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/1527498/90b44d593ac3e1129411/playlist.m3u8"
+  },
+  {
+    "id": "220",
+    "name": "Школа №17",
+    "m3u8": "https://cctv12.digibi.ru:18080/hls/12517078/b65e6c9105c0a1d10a9a/playlist.m3u8"
+  },
+  {
+    "id": "157",
+    "name": "Школа №18",
+    "m3u8": "https://cctv7.digibi.ru:18080/hls/3387624/46d821d79041b6e050c8/playlist.m3u8"
+  },
+  {
+    "id": "126",
+    "name": "Школа №20",
+    "m3u8": "https://cctv10.digibi.ru:18080/hls/2241676/c9874a3114d2198633a5/playlist.m3u8"
+  },
+  {
+    "id": "156",
+    "name": "Школа №34",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/3387568/e7cb8fba12b845444b27/playlist.m3u8"
+  },
+  {
+    "id": "145",
+    "name": "Школа ВОС ост.",
+    "m3u8": "https://cctv8.digibi.ru:18080/hls/2957760/6f2352e66bba29ac49b2/playlist.m3u8"
+  },
+  {
+    "id": "286",
+    "name": "Яминская - Волочаевская №1",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/29512171/0e3c69863da21547dc17/playlist.m3u8"
+  },
+  {
+    "id": "287",
+    "name": "Яминская - Волочаевская №2",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/29512181/b771ce00d715e968bf6e/playlist.m3u8"
+  },
+  {
+    "id": "288",
+    "name": "Яминская, светофор №1",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/29525727/656fa34af5dd85ad347b/playlist.m3u8"
+  },
+  {
+    "id": "289",
+    "name": "Яминская, светофор №2",
+    "m3u8": "https://cctv6.digibi.ru:18080/hls/29525909/48c12ee80d0589e66d2e/playlist.m3u8"
+  }
+]

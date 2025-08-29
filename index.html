@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Камеры Бийска — карта и список</title>
+
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=86894055-751c-4261-8bc3-54068831bfa1&lang=ru_RU"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <style>
+    :root{
+      --vh: 1vh;
+      --header-h:72px; --container:1260px; --sidebar-w:380px;
+      --tabs-offset:0px; --player-h-mob:38vh;
+
+      /* светлая тема */
+      --bg:#ffffff; --panel:#f7f9fc; --card:#ffffff; --text:#0f172a; --muted:#6b7280;
+      --brand:#2563eb; --brand-ink:#ffffff;
+      --border:#e5e7eb; --shadow:0 8px 24px rgba(15,23,42,.06);
+      --pin-grad1:#bfe0ff; --pin-grad2:#60a5fa; --pin-grad3:#1d4ed8;
+
+      --cta-grad: linear-gradient(135deg,#60a5fa, #2563eb);
+      --cta-grad-dark: linear-gradient(135deg,#2f87ff,#1e3a8a);
+    }
+    html[data-theme="dark"]{
+      --bg:#0c1117; --panel:#0f1722; --card:#121a27; --text:#e5eefc; --muted:#a7b3c6;
+      --brand:#4ea4ff; --brand-ink:#051221;
+      --border:#1f2a3a; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --pin-grad1:#aee0ff; --pin-grad2:#2f87ff; --pin-grad3:#1e3a8a;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:20;height:var(--header-h);display:flex;align-items:center;background:color-mix(in srgb, var(--card) 92%, transparent);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--border)}
+    .container{width:min(var(--container),100%);margin:0 auto;padding:0 16px}
+    .row{display:flex;align-items:center;gap:16px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+    .logo-badge{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#93c5fd 0%,#60a5fa 100%)}
+    html[data-theme="dark"] .logo-badge{background:linear-gradient(135deg,#6fb7ff 0%,#3c92ff 100%)}
+
+    .theme-toggle{margin-left:auto;display:flex;gap:10px;align-items:center}
+    .theme-btn{appearance:none;border:1px solid var(--border);background:var(--card);border-radius:999px;padding:8px 10px;cursor:pointer;display:flex;align-items:center;gap:8px}
+    .theme-btn svg{width:18px;height:18px}
+
+    .tabs{display:flex;gap:10px;margin-left:10px}
+    .tab-btn{appearance:none;border:1px solid var(--border);background:var(--card);border-radius:999px;padding:9px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600}
+    .tab-btn svg{width:18px;height:18px}
+    .tab-btn.active{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+    .tab-btn.active svg path{stroke:var(--brand-ink)}
+
+    /* Tabs mobile */
+    .tabs-mobile{display:none;width:min(var(--container),100%);margin:12px auto 0;padding:0 16px}
+    .tabs-mobile .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .tabs-mobile .tab-btn{width:100%;justify-content:center}
+
+    /* Layout */
+    main{min-height:calc(100vh - var(--header-h))}
+    .layout{width:min(var(--container),100%);margin:12px auto 0;padding:0 16px}   /* убрали нижний отступ */
+    .cols{display:flex;flex-direction:column;gap:14px}
+    @media (min-width:1100px){ .cols{display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:16px} }
+
+    #playerCard{order:1} #sideList{order:2}
+    @media (min-width:1100px){ #playerCard{order:2} #sideList{order:1} }
+
+    /* Sidebar & list */
+    .side{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+    .tools{padding:12px;border-bottom:1px solid var(--border);background:var(--panel)}
+    .search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:8px 12px}
+    .search input{flex:1;background:transparent;border:0;outline:0;color:var(--text);font-size:14px}
+    .list{list-style:none;margin:0;padding:0;overflow:auto}
+    .list{max-height:calc(var(--vh) * 100 - var(--header-h) - var(--tabs-offset) - var(--player-h-mob) - 118px)} /* компактнее, чтобы без хвоста */
+    @media (min-width:1100px){ .list{max-height:calc(100vh - var(--header-h) - 120px)} }
+    .list li{padding:12px 14px;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:center;gap:10px}
+    .list li:hover{background:color-mix(in srgb,var(--panel) 70%, transparent)}
+    .list li.active{background:color-mix(in srgb,var(--brand) 12%, var(--card))}
+    .num{font-size:12px;color:var(--text);background:color-mix(in srgb, var(--brand) 12%, var(--panel));border:1px solid var(--border);padding:2px 8px;border-radius:999px}
+    .empty{color:var(--muted);padding:16px}
+
+    /* Player */
+    .player{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+    .player-top{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .player-title{font-weight:700;flex:1 1 auto}
+    .player-actions{display:flex;gap:8px;align-items:center}
+    .pill{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:999px;cursor:pointer}
+    /* CTA в плеере */
+    .player-cta{display:flex;gap:8px;align-items:center}
+    .cta{--g:var(--cta-grad); display:inline-flex;align-items:center;gap:8px;border:0;background:var(--card);text-decoration:none;color:var(--text);padding:2px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap}
+    html[data-theme="dark"] .cta{--g:var(--cta-grad-dark)}
+    .cta > span{display:inline-flex;align-items:center;gap:8px;background:var(--g);color:#fff;padding:6px 10px;border-radius:999px}
+    .cta svg{width:18px;height:18px}
+    /* текст для кнопки "Видеонаблюдение": на мобиле короткий, на десктопе длинный */
+    .cta.install .label::after{content: attr(data-full);}
+    @media (max-width:800px){ .cta.install .label::after{content: attr(data-short);} }
+    video{display:block;width:100%;height:var(--player-h-mob);background:#000;object-fit:cover}
+    @media (min-width:1100px){ video{height:64vh} }
+
+    /* Map section */
+    #map-section{display:none;width:min(var(--container),100%);margin:12px auto 0;padding:0 16px} /* без нижнего отступа */
+    #map-card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+    #mapbar{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel)}
+    #mapbar .pill{display:flex;gap:8px;align-items:center}
+    #map{height:calc(var(--vh) * 100 - var(--header-h) - var(--tabs-offset) - 110px)}
+    @media (min-width:1100px){ #map{height:calc(100vh - var(--header-h) - 110px)} }
+
+    /* mobile tabs visible */
+    @media (max-width:1099.98px){
+      .tabs{display:none}
+      .tabs-mobile{display:block}
+      :root{ --tabs-offset:70px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="logo">
+          <div class="logo-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" fill="#fff" opacity=".9"/>
+              <circle cx="12" cy="12" r="5" fill="#60a5fa"/><circle cx="12" cy="12" r="2" fill="#e0f2fe"/>
+            </svg>
+          </div>
+          <span>Камеры Бийска</span>
+        </div>
+
+        <div class="theme-toggle">
+          <button id="btnTheme" class="theme-btn" aria-label="Переключить тему">
+            <svg id="icon-sun" viewBox="0 0 24 24" fill="none"><path d="M12 4v2m0 12v2m8-8h-2M6 12H4m12.95 5.05l-1.41-1.41M8.46 8.46 7.05 7.05m0 9.9 1.41-1.41m9.9-9.9-1.41 1.41M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg id="icon-moon" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <!-- desktop tabs -->
+          <div class="tabs" aria-label="Переключение вида">
+            <button id="tabListDesk" class="tab-btn active">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              По списку
+            </button>
+            <button id="tabMapDesk" class="tab-btn">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-10a7 7 0 0 0-14 0c0 5.5 7 10 7 10zM12 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              По карте
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile tabs -->
+  <section class="tabs-mobile">
+    <div class="grid">
+      <button id="tabListMob" class="tab-btn active">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        По списку
+      </button>
+      <button id="tabMapMob" class="tab-btn">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-10a7 7 0 0 0-14 0c0 5.5 7 10 7 10zM12 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        По карте
+      </button>
+    </div>
+  </section>
+
+  <main>
+    <!-- LIST + PLAYER -->
+    <div class="layout" id="list-section">
+      <div class="cols">
+        <!-- Player -->
+        <section class="player" id="playerCard" aria-live="polite" aria-label="Плеер">
+          <div class="player-top">
+            <div class="player-title" id="player-title">Загрузка…</div>
+
+            <div class="player-cta">
+              <a class="cta download" href="https://cams.digibi.ru/" target="_blank" rel="noopener" title="Скачать видео">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v10m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="label">Скачать</span>
+                </span>
+              </a>
+              <a class="cta install" href="https://vc4business.digibi.ru/?utm_source=digibi&utm_medium=referral&utm_campaign=basic_campaign&utm_content=rotate_banner-cams_page-to_landing" target="_blank" rel="noopener" title="Установить видеонаблюдение">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h10l3 3h5v9H3V7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="14" r="2" stroke="currentColor" stroke-width="2"/><path d="M14 11v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <span class="label" data-short="Видеонаблюдение" data-full="Установить видеонаблюдение"></span>
+                </span>
+              </a>
+            </div>
+
+            <div class="player-actions">
+              <button class="pill" id="btn-mute">🔇 звук выкл</button>
+            </div>
+          </div>
+          <video id="video" controls autoplay playsinline></video>
+        </section>
+
+        <!-- Camera list -->
+        <aside class="side" id="sideList">
+          <div class="tools">
+            <div class="search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 4a7 7 0 0 1 5.292 11.707l3.5 3.5-1.414 1.414-3.5-3.5A7 7 0 1 1 11 4z" stroke="currentColor"/></svg>
+              <input id="q" placeholder="Поиск по названию…" aria-label="Поиск"/>
+            </div>
+          </div>
+          <ul id="list" class="list" aria-label="Список камер"></ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div id="map-section">
+      <div id="map-card">
+        <div id="mapbar">
+          <button class="pill" id="btn-fit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Показать все
+          </button>
+          <button class="pill" id="btn-locate">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v2m0 10v2m7-7h-2M7 12H5m6-9a9 9 0 110 18 9 9 0 010-18zm0 4a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Где я
+          </button>
+        </div>
+        <div id="map" role="application" aria-label="Карта камер"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  /* 1vh fix & tabs height */
+  function setVH(){ document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01) + 'px'); }
+  function setTabsOffset(){
+    const mobile = window.matchMedia('(max-width:1099.98px)').matches;
+    document.documentElement.style.setProperty('--tabs-offset', mobile ? '70px' : '0px');
+  }
+  setVH(); setTabsOffset();
+  window.addEventListener('resize', ()=>{ setVH(); setTabsOffset(); });
+
+  /* Elements */
+  const listEl=document.getElementById('list');
+  const qEl=document.getElementById('q');
+  const video=document.getElementById('video');
+  const pTitle=document.getElementById('player-title');
+  const btnMute=document.getElementById('btn-mute');
+
+  const tabListDesk=document.getElementById('tabListDesk');
+  const tabMapDesk=document.getElementById('tabMapDesk');
+  const tabListMob=document.getElementById('tabListMob');
+  const tabMapMob=document.getElementById('tabMapMob');
+
+  const listSection=document.getElementById('list-section');
+  const mapSection=document.getElementById('map-section');
+
+  const btnTheme=document.getElementById('btnTheme');
+  const iconSun=document.getElementById('icon-sun');
+  const iconMoon=document.getElementById('icon-moon');
+
+  /* Theme */
+  function applyTheme(theme){
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    const dark = theme==='dark';
+    iconSun.style.display = dark ? 'none' : 'block';
+    iconMoon.style.display = dark ? 'block' : 'none';
+  }
+  (function(){
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+  })();
+  btnTheme.addEventListener('click', ()=>{
+    const cur = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(cur==='light' ? 'dark' : 'light');
+  });
+
+  /* State */
+  let cams=[]; let filtered=[]; let current=null; let HLS=null;
+  let map, clusterer; let placemarks=new Map();
+
+  /* CSV */
+  function parseCSV(text){
+    const rows=[]; let row=[], field='', q=false;
+    for(let i=0;i<text.length;i++){
+      const c=text[i], n=text[i+1];
+      if(q){ if(c==='"'&&n==='"'){field+='"';i++;} else if(c==='"'){q=false;} else field+=c; }
+      else { if(c==='"'){q=true;} else if(c===','){row.push(field);field='';}
+             else if(c==='\n'){row.push(field);rows.push(row);row=[];field='';}
+             else if(c==='\r'){} else field+=c; }
+    }
+    if(field.length||q) row.push(field);
+    if(row.length) rows.push(row);
+    if(!rows.length) return [];
+    const header=rows[0].map(h=>h.replace(/^"|"$/g,'').trim());
+    return rows.slice(1).filter(r=>r.some(v=>(v??'').trim()!=='')).map(r=>{
+      const o={}; for(let i=0;i<header.length;i++){ o[header[i]]=(r[i]??'').replace(/^"|"$/g,'').trim(); }
+      o.id=String(o.id);
+      o.lat=Number(String(o.lat||'').replace(',','.'));
+      o.lon=Number(String(o.lon||'').replace(',','.'));
+      return o;
+    });
+  }
+
+  async function load(){
+    try{
+      const res=await fetch('cams.csv',{cache:'no-store'});
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      const text=await res.text();
+      cams=parseCSV(text);
+      filtered=cams.slice();
+      renderList();
+      initMap();
+
+      const lastId = localStorage.getItem('lastCamId');
+      const firstPlayable = filtered.find(c=> (lastId? String(c.id)===lastId : true) && c.m3u8?.startsWith('http')) || filtered.find(c=> c.m3u8?.startsWith('http'));
+      if(firstPlayable) selectCam(firstPlayable, {fromAuto:true});
+    }catch(e){
+      listEl.innerHTML=`<li class="empty">Не удалось загрузить cams.csv: ${e}</li>`;
+    }
+  }
+
+  function renderList(){
+    listEl.innerHTML='';
+    if(!filtered.length){ listEl.innerHTML='<li class="empty">Ничего не найдено</li>'; return; }
+    filtered.forEach((c,idx)=>{
+      const li=document.createElement('li'); li.dataset.id=c.id;
+      li.innerHTML=`<span class="num">${idx+1}</span> <span>${c.name||'Без названия'}</span>`;
+      if(current&&current.id===c.id) li.classList.add('active');
+      li.onclick=()=> selectCam(c);
+      listEl.appendChild(li);
+    });
+    refreshPlacemarksVisibility();
+  }
+  function applySearch(v){
+    const f=(v||'').trim().toLowerCase();
+    filtered=cams.filter(c=>!f || (c.name&&c.name.toLowerCase().includes(f)));
+    renderList();
+  }
+  qEl.addEventListener('input', e=> applySearch(e.target.value));
+
+  /* Player */
+  btnMute.addEventListener('click', ()=>{ video.muted=!video.muted; btnMute.textContent = video.muted? '🔇 звук выкл' : '🔊 звук вкл'; });
+  video.muted=true;
+
+  function stop(){ try{ if(HLS){ HLS.destroy(); HLS=null; } }catch(e){} video.removeAttribute('src'); video.load(); }
+  function play(cam){
+    pTitle.textContent=cam.name||`Камера`;
+    const src=(cam.m3u8||'').trim();
+    if(!src){ pTitle.textContent+=' — источник недоступен'; stop(); return; }
+
+    if(video.canPlayType('application/vnd.apple.mpegURL')){
+      try{ if(HLS){HLS.destroy();HLS=null;} }catch(e){}
+      video.src=src; video.play().catch(()=>{});
+      return;
+    }
+    if(window.Hls && Hls.isSupported()){
+      if(HLS){ HLS.destroy(); }
+      HLS=new Hls({backBufferLength:30, fragLoadingRetryDelay:1200, manifestLoadingRetryDelay:1500, enableWorker:true});
+      HLS.loadSource(src);
+      HLS.attachMedia(video);
+      HLS.on(Hls.Events.ERROR,(_,data)=>{
+        if(data.fatal){
+          if(data.type===Hls.ErrorTypes.NETWORK_ERROR) HLS.startLoad();
+          else if(data.type===Hls.ErrorTypes.MEDIA_ERROR) HLS.recoverMediaError();
+          else { HLS.destroy(); HLS=null; setTimeout(()=>play(cam),2000); }
+        }
+      });
+      return;
+    }
+    alert('Ваш браузер не поддерживает HLS.');
+  }
+  function selectCam(cam,{fromAuto=false}={}){
+    current=cam;
+    [...listEl.children].forEach(li=> li.classList.toggle('active', li.dataset.id===cam.id));
+    play(cam);
+    localStorage.setItem('lastCamId', cam.id);
+    if(!fromAuto) setTabsActive('list');
+  }
+
+  /* Tabs */
+  function setTabsActive(which){
+    const isList = which==='list';
+    [tabListDesk, tabListMob].forEach(b=> b.classList.toggle('active', isList));
+    [tabMapDesk, tabMapMob].forEach(b=> b.classList.toggle('active', !isList));
+    listSection.style.display = isList ? 'block' : 'none';
+    mapSection.style.display  = isList ? 'none'  : 'block';
+    if(!isList){
+      stop();
+      setTimeout(()=> fitAll(true), 60);
+    }
+  }
+  tabListDesk.onclick=()=> setTabsActive('list');
+  tabMapDesk.onclick=()=> setTabsActive('map');
+  tabListMob.onclick=()=> setTabsActive('list');
+  tabMapMob.onclick=()=> setTabsActive('map');
+
+  /* Map */
+  function initMap(){
+    ymaps.ready(()=>{
+      map=new ymaps.Map('map',{center:[52.536,85.207],zoom:12,controls:['zoomControl','fullscreenControl']});
+      clusterer = new ymaps.Clusterer({groupByCoordinates:true, gridSize:64, clusterDisableClickZoom:false, clusterOpenBalloonOnClick:true});
+
+      const css = getComputedStyle(document.documentElement);
+      const pinSVG = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 48'>
+        <defs><radialGradient id='g' cx='50%' cy='30%'>
+          <stop offset='0%' stop-color='${css.getPropertyValue('--pin-grad1').trim()}'/>
+          <stop offset='70%' stop-color='${css.getPropertyValue('--pin-grad2').trim()}'/>
+          <stop offset="100%" stop-color='${css.getPropertyValue('--pin-grad3').trim()}'/>
+        </radialGradient></defs>
+        <path d='M18 47s-14-10.2-14-24A14 14 0 0 1 18 9a14 14 0 0 1 14 14c0 13.8-14 24-14 24z' fill='url(#g)'/>
+        <circle cx='18' cy='23' r='5' fill='#e6f3ff'/></svg>`;
+      const iconHref='data:image/svg+xml;utf8,'+encodeURIComponent(pinSVG);
+
+      const pms=[]; placemarks.clear();
+      for(const c of cams){
+        if(!Number.isFinite(c.lat)||!Number.isFinite(c.lon)) continue;
+        const pm=new ymaps.Placemark([c.lat,c.lon],{
+          hintContent: c.name||'Камера',
+          balloonContent: `
+            <div style="font-weight:700;margin-bottom:6px">${(c.name||'Камера').replace(/</g,'&lt;')}</div>
+            <button id="pp-${c.id}" style="cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 12px;border-radius:10px">▶️ Смотреть</button>
+          `
+        },{
+          iconLayout:'default#image', iconImageHref:iconHref, iconImageSize:[28,36], iconImageOffset:[-14,-36]
+        });
+        pm.events.add('balloonopen',()=>{ setTimeout(()=>{ const btn=document.getElementById(`pp-${c.id}`); if(btn){ btn.onclick=()=>{ selectCam(c); }; } },0); });
+        pms.push(pm); placemarks.set(c.id, pm);
+      }
+      clusterer.add(pms); map.geoObjects.add(clusterer);
+
+      document.getElementById('btn-fit').onclick=()=>fitAll(true);
+      document.getElementById('btn-locate').onclick=locateMe;
+
+      fitAll(true);
+    });
+  }
+
+  function fitAll(){
+    if(!map || !clusterer) return;
+    const b = clusterer.getBounds();
+    if(b){ map.setBounds(b, {checkZoomRange:true, zoomMargin:40}); return; }
+    const pts=[]; placemarks.forEach(pm=>{ const c=pm.geometry.getCoordinates(); if(c) pts.push(c); });
+    if(pts.length===1){ map.setCenter(pts[0], 14); }
+    else if(pts.length>1){ map.setBounds(ymaps.util.bounds.fromPoints(pts), {checkZoomRange:true, zoomMargin:40}); }
+    else { map.setCenter([52.536,85.207], 12); }
+  }
+
+  function locateMe(){
+    if(!navigator.geolocation) return alert('Геолокация не поддерживается');
+    navigator.geolocation.getCurrentPosition(pos=>{
+      const {latitude, longitude}=pos.coords;
+      map.setCenter([latitude, longitude], 14);
+      const m=new ymaps.Circle([[latitude,longitude], 60], {}, {draggable:false, fillColor:'#93c5fd55', strokeColor:'#60a5fa'});
+      map.geoObjects.add(m); setTimeout(()=> map.geoObjects.remove(m), 3500);
+    }, err=> alert('Не удалось получить геопозицию: '+err.message));
+  }
+
+  function refreshPlacemarksVisibility(){
+    if(!clusterer) return; const ids=new Set(filtered.map(c=>c.id)); const visible=[];
+    placemarks.forEach((pm,id)=>{ if(ids.has(id)) visible.push(pm); });
+    clusterer.removeAll(); clusterer.add(visible);
+    if(mapSection.style.display==='block') setTimeout(()=>fitAll(), 30);
+  }
+
+  load();
+  </script>
+</body>
+</html>

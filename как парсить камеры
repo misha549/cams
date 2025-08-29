@@ -1,0 +1,140 @@
+(async () => {
+  // ===== настройки =====
+  const SELECTOR = '#cam_id';
+  const WAIT_AFTER_SELECT = 1000;   // мс пауза после выбора камеры
+  const WAIT_M3U8_MAX = 12000;      // мс макс ожидание m3u8
+  const BETWEEN_CAMS = 400;         // мс пауза между камерами
+
+  const sleep = (ms)=>new Promise(r=>setTimeout(r,ms));
+  const log = (...a)=>console.log('[cams]', ...a);
+
+  // --- собираем список камер ---
+  const sel = document.querySelector(SELECTOR) || document.querySelector('[name="cam_id"]');
+  if (!sel) { console.error('Не найден селектор', SELECTOR); return; }
+  const options = [...sel.querySelectorAll('option')].map(o=>({id:o.value.trim(), name:o.textContent.trim()}))
+                                                     .filter(o=>o.id && o.name);
+  log(`Найдено камер: ${options.length}`);
+
+  // --- нюхач m3u8 ---
+  const seen = new Set();
+  let foundUrls = [];
+  const report = (url)=>{
+    if (typeof url !== 'string') return;
+    if (!url.includes('.m3u8')) return;
+    if (seen.has(url)) return;
+    seen.add(url);
+    foundUrls.push(url);
+    console.log('🎯 M3U8:', url);
+  };
+  const _fetch = window.fetch;
+  window.fetch = async (...args) => {
+    const res = await _fetch(...args);
+    try { report(res.url); } catch(e){}
+    return res;
+  };
+  const _open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+    try { report(url); } catch(e){}
+    return _open.call(this, method, url, ...rest);
+  };
+  const sniffNode = (n)=>{
+    if (!n || !n.tagName) return;
+    const t = n.tagName.toLowerCase();
+    if (t === 'a') {
+      const href = n.getAttribute('href'); if (href) report(href);
+    } else if (t === 'video' || t === 'audio' || t === 'source') {
+      const src = n.getAttribute('src') || n.src; if (src) report(src);
+    }
+  };
+  new MutationObserver((muts)=>{
+    muts.forEach(m=>{
+      if (m.addedNodes) m.addedNodes.forEach(sniffNode);
+      if (m.type==='attributes') sniffNode(m.target);
+    });
+  }).observe(document, {subtree:true,childList:true,attributes:true,attributeFilter:['src','href']});
+
+  const tryPlay = () => {
+    const btns = [...document.querySelectorAll('button')];
+    for (const b of btns) {
+      if (/смотр/i.test(b.textContent) || /включ/i.test(b.textContent) || /play/i.test(b.textContent)) {
+        b.click(); return true;
+      }
+    }
+    const big = document.querySelector('.vjs-big-play-button, .plyr__control[data-plyr="play"]');
+    if (big) { big.click(); return true; }
+    const v = document.querySelector('video');
+    if (v) { v.click(); return true; }
+    return false;
+  };
+
+  // --- достать координаты с карты ---
+  function getCoordsForCurrentCam() {
+    if (typeof ymaps === 'undefined') return {lat:'',lon:'',caption:''};
+    let mapObj;
+    for (const k in window) {
+      const v = window[k];
+      if (v && v.geoObjects && typeof v.getCenter==='function') { mapObj = v; break; }
+    }
+    if (!mapObj) return {lat:'',lon:'',caption:''};
+
+    const center = mapObj.getCenter();
+    const placemarks = [];
+    mapObj.geoObjects.each(obj=>{
+      try {
+        if (obj.geometry && obj.geometry.getType && obj.geometry.getType()==='Point') {
+          const [lat, lon] = obj.geometry.getCoordinates();
+          const props = obj.properties || {};
+          const caption = props.get ? (props.get('iconCaption')||props.get('hintContent')||'') : '';
+          placemarks.push({lat, lon, caption});
+        }
+      } catch(e){}
+    });
+    if (!placemarks.length) return {lat:'',lon:'',caption:''};
+    // ближайшая к центру
+    function d2(a,b){const dx=a[0]-b[0], dy=a[1]-b[1]; return dx*dx+dy*dy;}
+    placemarks.sort((p,q)=>d2([p.lat,p.lon],center)-d2([q.lat,q.lon],center));
+    return placemarks[0];
+  }
+
+  async function processCam(cam){
+    foundUrls = [];
+    sel.value = cam.id;
+    sel.dispatchEvent(new Event('change',{bubbles:true}));
+    await sleep(WAIT_AFTER_SELECT);
+    tryPlay();
+
+    const t0 = performance.now();
+    while (performance.now()-t0 < WAIT_M3U8_MAX) {
+      const a = document.querySelector('a[href*=".m3u8"]');
+      if (a) report(a.href);
+      if (foundUrls.length) break;
+      tryPlay();
+      await sleep(250);
+    }
+    const m3u8 = foundUrls[0]||'';
+    const coords = getCoordsForCurrentCam();
+    return [cam.id, cam.name, coords.lat, coords.lon, m3u8];
+  }
+
+  const rows = [['id','name','lat','lon','m3u8']];
+  for (let i=0;i<options.length;i++){
+    const cam = options[i];
+    const row = await processCam(cam);
+    rows.push(row);
+    log(`[${i+1}/${options.length}] ${row[0]} | ${row[1]} -> ${row[4] ? 'OK' : '—'}`);
+    await sleep(BETWEEN_CAMS);
+  }
+
+  // --- скачать CSV ---
+  const csv = rows.map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'cams_full.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+
+  console.log('✅ Готово. cams_full.csv скачан.');
+})();
